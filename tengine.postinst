@@ -23,6 +23,12 @@ if [ -z "$2" ]; then
     fi
 fi
 
+# If a symlink doesn't exist and can be created, then create it.
+if [ -z $2 ] && [ ! -e /etc/nginx/sites-enabled/default ] &&
+   [ -d /etc/nginx/sites-enabled ] && [ -d /etc/nginx/sites-available ]; then
+  ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+fi
+
 if [ -x "/etc/init.d/nginx" ]; then
     if [ -f "/var/run/nginx.pid" ] && kill -0 `cat /var/run/nginx.pid` >/dev/null; then
         /etc/init.d/nginx upgrade || true 

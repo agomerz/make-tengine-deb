@@ -103,6 +103,6 @@ override_dh_auto_install:
 	/usr/bin/install -m 644 conf/uwsgi_params debian/tengine/etc/nginx/
 	/usr/bin/install -m 644 html/index.html debian/tengine/usr/share/nginx/html/
 	/usr/bin/install -m 644 html/50x.html debian/tengine/usr/share/nginx/html/
-	/usr/bin/install -m 644 debian/nginx.vh.default.conf debian/tengine/etc/nginx/conf.d/default.conf
-	/usr/bin/install -m 644 debian/nginx.vh.example_ssl.conf debian/tengine/etc/nginx/conf.d/example_ssl.conf
+	/usr/bin/install -m 644 debian/nginx.vh.default.conf debian/tengine/etc/nginx/sites-available/default
+	/usr/bin/install -m 644 debian/nginx.vh.example_ssl.conf debian/tengine/etc/nginx/sites-available/example_ssl
 	/usr/bin/install -m 755 objs/nginx  debian/tengine/usr/sbin/
